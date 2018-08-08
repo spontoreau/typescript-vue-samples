@@ -1,12 +1,19 @@
 <template>
-  <div class="row pt-4">
-    <h5>Employee directory</h5>
+  <div>
+    <div class="row pt-4">
+      <EmployeeCard />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import EmployeeCard from '@/components/EmployeeCard.vue';
 
-@Component
+@Component({
+  components: {
+    EmployeeCard,
+  }
+})
 export default class Home extends Vue {}
 </script>
