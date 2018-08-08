@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card pb-2">
     <img class="card-img-top" src="http://localhost:3000/images/m1.png" alt="Card image cap">
     <div class="card-body">
       <div>
@@ -20,12 +20,12 @@
           Aug 8th 18
         </label>
       </div>
-    </div>
-    <div class="card-footer">
-      <span class="badge float-left" style="backgroundColor: #0984e3; color: #FFFFFF;">Executive</span>
-      <a href="mailto:homas.anderson@misterandersoncorporation.com">
-        <i class="far fa-envelope float-right"></i>
-      </a>
+      <div class="pt-4">
+        <span class="badge float-left" style="backgroundColor: #0984e3; color: #FFFFFF;">Executive</span>
+        <a class="float-right" href="mailto:homas.anderson@misterandersoncorporation.com">
+          <i class="far fa-envelope"></i>
+        </a>
+      </div>
     </div>
   </div>
 </template>
