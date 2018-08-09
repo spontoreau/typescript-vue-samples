@@ -7,6 +7,7 @@ import './registerServiceWorker';
 Vue.config.productionTip = false;
 
 new Vue({
+  name: 'EmployeeDirectory',
   router,
   store,
   render: (h) => h(App),
