@@ -23,5 +23,21 @@ import EmployeeCard from '@/components/EmployeeCard.vue';
     EmployeeCard,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+
+}
+
+interface Employee {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  hiredDate: string;
+  picture: string;
+  team: {
+    name: string;
+    backgroundColor: string;
+    textColor: string;
+  }
+}
 </script>
