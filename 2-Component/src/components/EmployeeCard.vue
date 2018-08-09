@@ -52,7 +52,7 @@ export default class EmployeeCard extends Vue {
   employee!: Employee;
 
   get fullName() {
-    return `${ this.employee.lastName } ${ this.employee.firstName }`;
+    return `${ this.employee.firstName } ${ this.employee.lastName }`;
   }
 
   get formattedDate() {

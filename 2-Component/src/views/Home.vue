@@ -3,7 +3,7 @@
     <div class="row pt-4">
       <div class="card-columns">
         <EmployeeCard 
-          v-for="e in employees"
+          v-for="e of employees"
           :key="e.id"
           :employee="e"
         />
@@ -37,10 +37,10 @@ export default class Home extends Vue {
 
 .card-columns {
   @include media-breakpoint-only(xl) {
-    column-count: 5;
+    column-count: 4;
   }
   @include media-breakpoint-only(lg) {
-    column-count: 4;
+    column-count: 3;
   }
   @include media-breakpoint-only(md) {
     column-count: 2;
