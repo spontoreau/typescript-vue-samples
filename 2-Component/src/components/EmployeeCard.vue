@@ -23,9 +23,9 @@
       <div class="pt-4">
         <TeamBadge
           class="float-left"
-          :name="'Executive'"
-          :textColor="'#FFFFFF'"
-          :backgroundColor="'#0984e3'"
+          :name="team.name"
+          :textColor="team.textColor"
+          :tagColor="team.tagColor"
         />
         <a class="float-right" :href="mailTo()">
           <i class="far fa-envelope"></i>
@@ -64,6 +64,13 @@ export default class EmployeeCard extends Vue {
 
   @Prop()
   email!: string;
+
+  @Prop()
+  team!: {
+    name: string;
+    tagColor: string;
+    textColor: string;
+  };
 
   formattedDate() {
     return moment(this.hiredDate).format('MMM Do YY');

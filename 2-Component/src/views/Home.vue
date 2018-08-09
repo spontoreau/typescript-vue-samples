@@ -3,11 +3,14 @@
     <div class="row pt-4">
       <div class="card-columns">
         <EmployeeCard 
-          :fullName="'Thomas A. Anderson'"
-          :phone="'646-226-1860'"
-          :hiredDate="'1999-03-31T00:00:00Z'"
-          :email="'thomas.anderson@misterandersoncorporation.com'"
-          :picture="'m1.png'"
+          v-for="e in employees"
+          :key="e.id"
+          :fullName="e.lastName"
+          :phone="e.phone"
+          :hiredDate="e.hiredDate"
+          :email="e.email"
+          :picture="e.picture"
+          :team="e.team"
         />
       </div>
     </div>
@@ -24,10 +27,16 @@ import EmployeeCard from '@/components/EmployeeCard.vue';
   },
 })
 export default class Home extends Vue {
+  employees: Employee[] = [];
 
+  async mounted() {
+    const response = await fetch(`${process.env.VUE_APP_API_URL}employee`);
+    this.employees = await response.json();
+  }
 }
 
 interface Employee {
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -38,6 +47,6 @@ interface Employee {
     name: string;
     backgroundColor: string;
     textColor: string;
-  }
+  };
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <span class="badge" :style="{ color: textColor, backgroundColor: backgroundColor }">
+  <span class="badge" :style="{ color: textColor, backgroundColor: tagColor }">
     {{ name }}
   </span>
 </template>
@@ -15,7 +15,7 @@ export default class TeamBadge extends Vue {
   name!: string;
 
   @Prop()
-  backgroundColor!: string;
+  tagColor!: string;
 
   @Prop()
   textColor!: string;
