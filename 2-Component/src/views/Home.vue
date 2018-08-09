@@ -32,3 +32,21 @@ export default class Home extends Vue {
 
 </script>
 
+<style lang="scss" scoped>
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+.card-columns {
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
+  }
+}
+</style>

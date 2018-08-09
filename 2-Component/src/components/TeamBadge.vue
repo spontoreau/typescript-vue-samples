@@ -20,6 +20,3 @@ export interface Team {
   textColor: string;
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
