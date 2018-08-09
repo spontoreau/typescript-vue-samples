@@ -1,6 +1,6 @@
 <template>
-  <span class="badge" :style="{ color: textColor, backgroundColor: tagColor }">
-    {{ name }}
+  <span class="badge" :style="{ color: team.textColor, backgroundColor: team.tagColor }">
+    {{ team.name }}
   </span>
 </template>
 
@@ -11,17 +11,15 @@ import { Prop } from 'vue-property-decorator';
 
 @Component
 export default class TeamBadge extends Vue {
-  @Prop()
-  name!: string;
+  @Prop() team!: Team;
+}
 
-  @Prop()
-  tagColor!: string;
-
-  @Prop()
-  textColor!: string;
+export interface Team {
+  name: string;
+  backgroundColor: string;
+  textColor: string;
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>

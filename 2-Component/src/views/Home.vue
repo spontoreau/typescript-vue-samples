@@ -5,12 +5,7 @@
         <EmployeeCard 
           v-for="e in employees"
           :key="e.id"
-          :fullName="e.lastName"
-          :phone="e.phone"
-          :hiredDate="e.hiredDate"
-          :email="e.email"
-          :picture="e.picture"
-          :team="e.team"
+          :employee="e"
         />
       </div>
     </div>
@@ -19,7 +14,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import EmployeeCard from '@/components/EmployeeCard.vue';
+import EmployeeCard, { Employee } from '@/components/EmployeeCard.vue';
 
 @Component({
   components: {
@@ -35,18 +30,5 @@ export default class Home extends Vue {
   }
 }
 
-interface Employee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  hiredDate: string;
-  picture: string;
-  team: {
-    name: string;
-    backgroundColor: string;
-    textColor: string;
-  };
-}
 </script>
+

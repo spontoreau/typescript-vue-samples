@@ -1,6 +1,6 @@
 <template>
   <div class="card pb-2">
-    <img class="card-img-top" :src="pictureUrl()" alt="Card image cap">
+    <img class="card-img-top" :src="pictureUrl" alt="Card image">
     <div class="card-body">
       <div>
         <label class="card-text">
@@ -11,23 +11,21 @@
       <div>
         <label class="card-text">
           <i class="fas fa-phone"></i>
-          {{ phone }}
+          {{ employee.phone }}
         </label>
       </div>
       <div>
         <label class="card-text">
           <i class="far fa-calendar"></i>
-          {{ formattedDate() }}
+          {{ formattedDate }}
         </label>
       </div>
       <div class="pt-4">
         <TeamBadge
           class="float-left"
-          :name="team.name"
-          :textColor="team.textColor"
-          :tagColor="team.tagColor"
+          :team="employee.team"
         />
-        <a class="float-right" :href="mailTo()">
+        <a class="float-right" :href="mailTo">
           <i class="far fa-envelope"></i>
         </a>
       </div>
@@ -42,7 +40,7 @@ import { Prop } from 'vue-property-decorator';
 // @ts-ignore
 import moment from 'moment';
 
-import TeamBadge from '@/components/TeamBadge.vue';
+import TeamBadge, { Team } from '@/components/TeamBadge.vue';
 
 @Component({
 components: {
@@ -51,38 +49,34 @@ components: {
 })
 export default class EmployeeCard extends Vue {
   @Prop()
-  fullName!: string;
+  employee!: Employee;
 
-  @Prop()
-  hiredDate!: string;
-
-  @Prop()
-  phone!: string;
-
-  @Prop()
-  picture!: string;
-
-  @Prop()
-  email!: string;
-
-  @Prop()
-  team!: {
-    name: string;
-    tagColor: string;
-    textColor: string;
-  };
-
-  formattedDate() {
-    return moment(this.hiredDate).format('MMM Do YY');
+  get fullName() {
+    return `${ this.employee.lastName } ${ this.employee.firstName }`;
   }
 
-  pictureUrl() {
-    return `${ process.env.VUE_APP_PICTURE_URL }${this.picture}`;
+  get formattedDate() {
+    return moment(this.employee.hiredDate).format('MMM Do YY');
   }
 
-  mailTo() {
-    return `mailto:${this.email}`;
+  get pictureUrl() {
+    return `${ process.env.VUE_APP_PICTURE_URL }${this.employee.picture}`;
   }
+
+  get mailTo() {
+    return `mailto:${this.employee.email}`;
+  }
+}
+
+export interface Employee {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  hiredDate: string;
+  picture: string;
+  team: Team;
 }
 </script>
 
