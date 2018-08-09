@@ -16,5 +16,5 @@ import Navigation from '@/components/Navigation.vue';
     Navigation,
   },
 })
-export default class Home extends Vue {}
+export default class App extends Vue {}
 </script>
