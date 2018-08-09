@@ -21,7 +21,12 @@
         </label>
       </div>
       <div class="pt-4">
-        <span class="badge float-left" style="backgroundColor: #0984e3; color: #FFFFFF;">Executive</span>
+        <TeamBadge
+          class="float-left"
+          :name="'Executive'"
+          :textColor="'#FFFFFF'"
+          :backgroundColor="'#0984e3'"
+        />
         <a class="float-right" :href="mailTo()">
           <i class="far fa-envelope"></i>
         </a>
@@ -37,7 +42,13 @@ import { Prop } from 'vue-property-decorator';
 // @ts-ignore
 import moment from 'moment';
 
-@Component
+import TeamBadge from '@/components/TeamBadge.vue';
+
+@Component({
+components: {
+    TeamBadge,
+  },
+})
 export default class EmployeeCard extends Vue {
   @Prop()
   fullName!: string;
