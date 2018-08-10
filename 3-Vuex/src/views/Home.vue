@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { Action, Getter } from 'vuex-class';
 import EmployeeCard, { Employee } from '@/components/EmployeeCard.vue';
 
 @Component({
@@ -22,11 +23,14 @@ import EmployeeCard, { Employee } from '@/components/EmployeeCard.vue';
   },
 })
 export default class Home extends Vue {
-  employees: Employee[] = [];
+  @Getter('employees', { namespace: 'retrieveEmployee'})
+  employees!: Employee[];
+
+  @Action('retrieveAll', { namespace: 'retrieveEmployee'})
+  retrieveAll!: () => Promise<void>;
 
   async mounted() {
-    const response = await fetch(`${process.env.VUE_APP_API_URL}employee`);
-    this.employees = await response.json();
+    await this.retrieveAll();
   }
 }
 

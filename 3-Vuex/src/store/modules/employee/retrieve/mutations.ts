@@ -3,8 +3,8 @@ import { RetrieveEmployeeState } from './state';
 import { Employee } from './types/employee';
 
 const mutations: MutationTree<RetrieveEmployeeState> = {
-    setEmployee: (state: RetrieveEmployeeState, employees: Employee[]) => {
-        Object.assign(state.employees, employees);
+    setEmployees: (state: RetrieveEmployeeState, employees: Employee[]) => {
+        state.employees = employees;
     },
 };
 
