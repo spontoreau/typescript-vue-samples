@@ -8,7 +8,7 @@ const storeOptions: StoreOptions<{}> = {
   state: {},
   modules: {
 
-  }
-}
+  },
+};
 
 export default new Vuex.Store(storeOptions);
