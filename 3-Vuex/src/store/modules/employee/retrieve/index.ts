@@ -9,6 +9,7 @@ const retrieveEmployee: Module<RetrieveEmployeeState, {}> = {
     state: {
         employees: [],
         error: '',
+        filterValue: '',
     },
     actions,
     mutations,

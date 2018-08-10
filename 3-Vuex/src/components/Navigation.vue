@@ -4,22 +4,26 @@
       <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Mister Anderson Corporation
     </a>
-    <form class="form-inline">
+    <div class="form-inline">
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="search">
+          <span class="input-group-text" id="filter">
             <i class="fas fa-search"></i>
           </span>
         </div>
-        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search">
+        <input @input="filter($event.target.value)" type="text" class="form-control" placeholder="Filter" aria-label="Filter" aria-describedby="filter">
       </div>
-    </form>
+    </div>
   </nav>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { Action } from 'vuex-class';
 
 @Component
-export default class Navigation extends Vue {}
+export default class Navigation extends Vue {
+  @Action('filter', { namespace: 'retrieveEmployee'})
+  filter!: (value: string) => void;
+}
 </script>

@@ -7,6 +7,9 @@ const actions: ActionTree<RetrieveEmployeeState, {}> = {
         const employees = await retrieveAllEmployess();
         commit('setEmployees', employees);
     },
+    filter: ({ commit }, value: string) => {
+        commit('setFilterValue', value);
+    },
 };
 
 export default actions;
