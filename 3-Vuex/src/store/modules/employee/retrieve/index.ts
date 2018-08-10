@@ -4,7 +4,7 @@ import actions from './actions';
 import mutations from './mutations';
 import getters from './getters';
 
-const retrieveEmployeeModule: Module<RetrieveEmployeeState, {}> = {
+const retrieveEmployee: Module<RetrieveEmployeeState, {}> = {
     namespaced: true,
     state: {
         employees: [],
@@ -15,4 +15,4 @@ const retrieveEmployeeModule: Module<RetrieveEmployeeState, {}> = {
     getters,
 };
 
-export default retrieveEmployeeModule;
+export default retrieveEmployee;
