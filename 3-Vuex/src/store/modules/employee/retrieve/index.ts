@@ -10,9 +10,9 @@ const retrieveEmployeeModule: Module<RetrieveEmployeeState, {}> = {
         employees: [],
         error: '',
     },
-    actions: actions,
-    mutations: mutations,
-    getters: getters,
+    actions,
+    mutations,
+    getters,
 };
 
 export default retrieveEmployeeModule;
