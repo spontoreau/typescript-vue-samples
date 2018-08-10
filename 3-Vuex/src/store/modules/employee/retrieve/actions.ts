@@ -1,10 +1,10 @@
 import { ActionTree } from 'vuex';
 import { RetrieveEmployeeState } from './state';
-import getAllEmployees from '@/store/modules/employee/retrieve/functions/getAllEmployees';
+import retrieveAllEmployess from './functions/retrieveAllEmployess';
 
 const actions: ActionTree<RetrieveEmployeeState, {}> = {
     retrieveAll: async ({ commit }) => {
-        const employees = await getAllEmployees();
+        const employees = await retrieveAllEmployess();
         commit('setEmployees', employees);
     },
 };
