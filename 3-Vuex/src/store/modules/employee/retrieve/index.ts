@@ -1,6 +1,7 @@
 import { Module } from 'vuex';
 import { RetrieveEmployeeState } from './state';
 import actions from './actions';
+import mutations from './mutations';
 
 const retrieveEmployeeModule: Module<RetrieveEmployeeState, {}> = {
     namespaced: true,
@@ -9,6 +10,7 @@ const retrieveEmployeeModule: Module<RetrieveEmployeeState, {}> = {
         error: '',
     },
     actions: actions,
+    mutations: mutations,
 };
 
 export default retrieveEmployeeModule;
