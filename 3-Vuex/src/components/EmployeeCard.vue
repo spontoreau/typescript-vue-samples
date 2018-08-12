@@ -40,7 +40,9 @@ import { Prop } from 'vue-property-decorator';
 // @ts-ignore
 import moment from 'moment';
 
-import TeamBadge, { Team } from '@/components/TeamBadge.vue';
+import TeamBadge from '@/components/TeamBadge.vue';
+import { Employee } from '@/store/modules/employee/retrieve/types/employee';
+import { Team } from '@/store/modules/employee/retrieve/types/team';
 
 @Component({
 components: {
@@ -66,17 +68,6 @@ export default class EmployeeCard extends Vue {
   get mailTo() {
     return `mailto:${this.employee.email}`;
   }
-}
-
-export interface Employee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  hiredDate: string;
-  picture: string;
-  team: Team;
 }
 </script>
 

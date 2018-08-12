@@ -8,15 +8,10 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
+import { Team } from '@/store/modules/employee/retrieve/types/team';
 
 @Component
 export default class TeamBadge extends Vue {
   @Prop() team!: Team;
-}
-
-export interface Team {
-  name: string;
-  backgroundColor: string;
-  textColor: string;
 }
 </script>

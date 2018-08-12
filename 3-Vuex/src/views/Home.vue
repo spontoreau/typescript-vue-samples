@@ -15,7 +15,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Getter } from 'vuex-class';
-import EmployeeCard, { Employee } from '@/components/EmployeeCard.vue';
+
+import EmployeeCard from '@/components/EmployeeCard.vue';
+import { Employee } from '@/store/modules/employee/retrieve/types/employee';
 
 @Component({
   components: {
